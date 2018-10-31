@@ -17,11 +17,11 @@ namespace To_DoPapukaija.Models
 
         public int ID { get; set; }
 
-        [Required]
+        
         [StringLength(50)]
         public string Etunimi { get; set; }
 
-        [Required]
+        
         [StringLength(50)]
         public string Sukunimi { get; set; }
 
