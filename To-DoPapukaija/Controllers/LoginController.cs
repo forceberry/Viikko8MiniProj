@@ -5,10 +5,11 @@ using System.Web;
 using To_DoPapukaija.Services;
 using System.Web.Http;
 using To_DoPapukaija.Models;
+using System.Web.Http.Cors;
 
 namespace To_DoPapukaija.Controllers
 {
-
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
         private IUserService _userService;
