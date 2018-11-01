@@ -13,6 +13,7 @@ using To_DoPapukaija.Models;
 
 namespace To_DoPapukaija.Controllers
 {
+    
     [EnableCors(origins: "*", headers: "*", methods:"*")]
     public class KayttajatController : ApiController
     {
