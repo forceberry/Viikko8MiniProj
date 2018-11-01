@@ -16,7 +16,14 @@ namespace To_DoPapukaija.Controllers
     [EnableCors(origins: "*", headers: "*", methods:"*")]
     public class KayttajatController : ApiController
     {
-        private DBModel db = new DBModel();
+        public DBModel db { get; }
+        public KayttajatController()
+        {
+            if(db == null)
+            {
+               db = new DBModel();
+            }
+        }
 
         // GET: api/Kayttajat
         public IQueryable<Kayttaja> GetKayttaja()

@@ -6,19 +6,27 @@ using To_DoPapukaija.Services;
 using System.Web.Http;
 using To_DoPapukaija.Models;
 using System.Web.Http.Cors;
+using System.Net;
 
 namespace To_DoPapukaija.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        private IUserService _userService;
-        public LoginController(IUserService userService)
+
+        public LoginController()
+        {
+            _userService = new UserService();
+
+        }
+
+        private UserService _userService;
+        public LoginController(UserService userService)
         {
             _userService = userService;
         }
 
-        [HttpPost] //saattaa olla väärä
+        [HttpPost] 
         public IHttpActionResult Authenticate(Kayttaja userParam)
         {
             var user = _userService.Authenticate(userParam.Email, userParam.Salasana);
@@ -27,15 +35,15 @@ namespace To_DoPapukaija.Controllers
             {
                 return BadRequest(message: "Väärä käyttäjätunnus tai salasana");
             }
-
-            return Ok(user);
+            return Content(HttpStatusCode.Created, user);
+            
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public IHttpActionResult GetAll()
         {
             var users = _userService.GetAll();
             return Ok(users);
-        }
+        }*/
     }
 }

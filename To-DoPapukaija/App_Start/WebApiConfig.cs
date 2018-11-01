@@ -16,11 +16,11 @@ namespace To_DoPapukaija
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            config.Routes.MapHttpRoute(
+           /* config.Routes.MapHttpRoute(
                name: "LoginApi",
                routeTemplate: "api/{controller}/{email}",
                defaults: new { email = RouteParameter.Optional }
-           );
+           );*/
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
