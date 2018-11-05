@@ -28,7 +28,6 @@ namespace To_DoPapukaija.Models
         [Column(TypeName = "date")]
         public DateTime Aikaleima { get; set; }
 
-
         [StringLength(50)]
         public string Kategoria { get; set; }
 
